@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Project X",
+    "description": "A game-inspired dashboard built with [Tech].",
+    "tech": ["Next.js", "Tailwind"],
+    "image": "/images/placeholder.jpg",
+    "link": "#"
+  },
+  {
+    "id": 2,
+    "title": "Project Y",
+    "description": "A portfolio site with ZZZ vibes.",
+    "tech": ["React", "Framer Motion"],
+    "image": "/images/placeholder.jpg",
+    "link": "#"
+  }
+]
