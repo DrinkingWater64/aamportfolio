@@ -1,78 +1,126 @@
 "use client";
-
 import { motion } from "framer-motion";
-import SpotlightCard from '../SpotlightCard';
+import { cvData } from "@/data/cv";
 
 export default function About() {
-  const experiences = [
-    {
-      title: "Senior Frontend Developer",
-      company: "TechCorp Inc.",
-      period: "2022 - Present",
-      description: "Led development of responsive web applications using React and TypeScript, improving user engagement by 40%.",
-    },
-    {
-      title: "Full Stack Developer",
-      company: "Innovate Solutions",
-      period: "2019 - 2022",
-      description: "Built and maintained full-stack applications with Node.js and MongoDB, reducing server response time by 25%.",
-    },
-    {
-      title: "Junior Web Developer",
-      company: "StartUp XYZ",
-      period: "2017 - 2019",
-      description: "Developed interactive UI components and collaborated on API integrations, enhancing app functionality.",
-    },
-  ];
-
   return (
-    <section className="min-h-screen bg-white text-black relative overflow-hidden flex items-center justify-center">
-      <div className="container mx-auto px-4 py-16 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left side - Title + Section Number */}
-          <div className="space-y-8">
-            <motion.h2
-              initial={{ x: -100, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-5xl md:text-6xl font-bold text-black"
-            >
-              About Me
-            </motion.h2>
-
+    <section className="py-20 bg-zen-black relative overflow-hidden">
+      <div className="zen-container">
+        <div className="flex flex-col md:flex-row gap-12">
+          {/* Left Column: Header & Stats */}
+          <div className="w-full md:w-1/3 space-y-8">
             <motion.div
-              initial={{ x: -100, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-              className="text-8xl md:text-9xl font-bold text-black/10"
             >
-              02
+              <h2 className="zen-title text-5xl md:text-7xl text-white mb-2">
+                AGENT<br />PROFILE
+              </h2>
+              <div className="h-2 w-24 bg-zen-neon mb-6" />
+              <p className="text-gray-400 text-lg leading-relaxed">
+                Specialized in backend architecture and high-performance systems. Currently deployed at {cvData.experience[0].company}
+              </p>
             </motion.div>
+
+            <div className="bg-zen-dark border border-zen-gray p-6 rounded-lg">
+              <h3 className="text-zen-neon font-bold uppercase mb-4 tracking-wider">Stats</h3>
+              <div className="space-y-4">
+                <div>
+                  <div className="flex justify-between text-sm text-gray-400 mb-1">
+                    <span>Backend</span>
+                    <span>95%</span>
+                  </div>
+                  <div className="h-2 bg-zen-gray rounded-full overflow-hidden">
+                    <div className="h-full bg-zen-neon w-[95%]" />
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm text-gray-400 mb-1">
+                    <span>Frontend</span>
+                    <span>80%</span>
+                  </div>
+                  <div className="h-2 bg-zen-gray rounded-full overflow-hidden">
+                    <div className="h-full bg-zen-blue w-[80%]" />
+                  </div>
+                </div>
+                <div>
+                  <div className="flex justify-between text-sm text-gray-400 mb-1">
+                    <span>DevOps</span>
+                    <span>70%</span>
+                  </div>
+                  <div className="h-2 bg-zen-gray rounded-full overflow-hidden">
+                    <div className="h-full bg-zen-orange w-[70%]" />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Right side - Experience Cards (centered vertically & horizontally in their column) */}
-          <div className="flex flex-col gap-8 justify-center">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-              >
-                <SpotlightCard
-                  className="custom-spotlight-card p-8"
-                  spotlightColor="rgba(0, 229, 255, 0.2)"
+          {/* Right Column: Experience Timeline */}
+          <div className="w-full md:w-2/3">
+            <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
+              <span className="w-8 h-8 bg-zen-neon text-zen-black flex items-center justify-center rounded mr-3 text-sm">01</span>
+              MISSION HISTORY
+            </h3>
+
+            <div className="space-y-6">
+              {cvData.experience.map((exp, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="zen-card p-6 md:p-8"
                 >
-                  <h3 className="text-2xl font-bold text-white mb-2">{exp.title}</h3>
-                  <p className="text-lg text-cyan-400 mb-1">{exp.company}</p>
-                  <p className="text-sm text-gray-400 mb-4">{exp.period}</p>
-                  <p className="text-gray-300">{exp.description}</p>
-                </SpotlightCard>
-              </motion.div>
-            ))}
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+                    <div>
+                      <h4 className="text-xl md:text-2xl font-bold text-white">{exp.role}</h4>
+                      <p className="text-zen-neon font-mono">{exp.company}</p>
+                    </div>
+                    <span className="text-sm text-gray-500 font-mono mt-2 md:mt-0 bg-zen-gray/50 px-3 py-1 rounded">
+                      {exp.period}
+                    </span>
+                  </div>
+                  <p className="text-gray-300 mb-4">{exp.description}</p>
+                  <ul className="space-y-2">
+                    {exp.projects.map((project, pIndex) => (
+                      <li key={pIndex} className="bg-zen-black/50 p-4 rounded border-l-2 border-zen-blue">
+                        <h5 className="font-bold text-white text-sm mb-1">{project.name}</h5>
+                        <ul className="list-disc list-inside text-sm text-gray-400 space-y-1">
+                          {project.details.slice(0, 2).map((detail, dIndex) => (
+                            <li key={dIndex}>{detail}</li>
+                          ))}
+                        </ul>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+
+              {cvData.education.map((edu, index) => (
+                <motion.div
+                  key={`edu-${index}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 }}
+                  className="zen-card p-6 md:p-8 border-l-4 border-l-zen-orange"
+                >
+                  <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-2">
+                    <div>
+                      <h4 className="text-xl font-bold text-white">{edu.institution}</h4>
+                      <p className="text-zen-orange font-mono">{edu.degree}</p>
+                    </div>
+                    <span className="text-sm text-gray-500 font-mono mt-2 md:mt-0 bg-zen-gray/50 px-3 py-1 rounded">
+                      {edu.period}
+                    </span>
+                  </div>
+                  <p className="text-gray-400 text-sm">{edu.location}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

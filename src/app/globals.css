@@ -1,182 +1,329 @@
 @import "tailwindcss";
-@import "tw-animate-css";
+/* @import "tw-animate-css"; */
 
 @custom-variant dark (&:is(.dark *));
 
-@layer components {
-  .glass-card {
-    @apply relative overflow-hidden w-[240px] h-[360px] rounded-[20px];
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(21px);
-    -webkit-backdrop-filter: blur(21px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.5),
-      inset 0 -1px 0 rgba(255, 255, 255, 0.1),
-      inset 0 0 0 0 rgba(255, 255, 255, 0);
-  }
-
-  .glass-card::before {
-    content: "";
-    @apply absolute top-0 left-0 right-0 h-px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.8),
-      transparent
-    );
-  }
-
-  .glass-card::after {
-    content: "";
-    @apply absolute top-0 left-0 w-px h-full;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.8),
-      transparent,
-      rgba(255, 255, 255, 0.3)
-    );
-  }
-}
-
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-zen-black: #0a0a0a;
+  --color-zen-dark: #121212;
+  --color-zen-gray: #2a2a2a;
+  --color-zen-light-gray: #e0e0e0;
+  --color-zen-neon: #ccff00;
+  /* Signature Zenless Neon Green */
+  --color-zen-orange: #ff6600;
+  /* Accent Orange */
+  --color-zen-blue: #00ccff;
+  /* Accent Blue */
+  --color-zen-red: #ff3333;
+  /* Accent Red */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+  --font-display: "Impact", "Arial Black", sans-serif;
+  --font-body: "Arial", sans-serif;
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-} */
-
-@theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --background: #0a0a0a;
+  --foreground: #e0e0e0;
+  --card: #121212;
+  --card-foreground: #e0e0e0;
+  --primary: #ccff00;
+  --primary-foreground: #0a0a0a;
+  --secondary: #2a2a2a;
+  --secondary-foreground: #e0e0e0;
+  --muted: #2a2a2a;
+  --muted-foreground: #888888;
+  --accent: #ccff00;
+  --accent-foreground: #0a0a0a;
+  --destructive: #ff3333;
+  --border: #333333;
+  --input: #2a2a2a;
+  --ring: #ccff00;
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--color-border);
+    outline-color: var(--color-ring);
   }
+
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 50% 50%, rgba(204, 255, 0, 0.05) 0%, transparent 50%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.2) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 0, 0, 0.2) 1px, transparent 1px);
+    background-size: 100% 100%, 40px 40px, 40px 40px;
+  }
+}
+
+@layer components {
+  .zen-container {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .zen-container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .zen-container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .zen-title {
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    font-style: italic;
+    text-shadow: 2px 2px 0px rgba(204, 255, 0, 0.2);
+  }
+
+  .zen-card {
+    position: relative;
+    background-color: var(--color-zen-dark);
+    border: 1px solid var(--color-zen-gray);
+    overflow: hidden;
+    transition: all 300ms;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 100%, 0 100%);
+  }
+
+  .zen-card:hover {
+    border-color: var(--color-zen-neon);
+    transform: translateY(-4px);
+    box-shadow: 0 0 15px rgba(204, 255, 0, 0.3);
+  }
+
+  .zen-btn {
+    position: relative;
+    padding: 0.75rem 2rem;
+    background-color: var(--color-zen-neon);
+    color: var(--color-zen-black);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 300ms;
+    clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+  }
+
+  .zen-btn:hover {
+    background-color: white;
+    color: var(--color-zen-black);
+    transform: scale(1.05);
+  }
+
+  .glitch-text {
+    position: relative;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch-text::before {
+    left: 2px;
+    text-shadow: -1px 0 #ff3333;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+
+  .glitch-text::after {
+    left: -2px;
+    text-shadow: -1px 0 #00ccff;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim-2 5s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-anim {
+    0% {
+      clip: rect(14px, 9999px, 12px, 0);
+    }
+
+    5% {
+      clip: rect(84px, 9999px, 92px, 0);
+    }
+
+    10% {
+      clip: rect(14px, 9999px, 92px, 0);
+    }
+
+    15% {
+      clip: rect(1px, 9999px, 12px, 0);
+    }
+
+    20% {
+      clip: rect(44px, 9999px, 56px, 0);
+    }
+
+    25% {
+      clip: rect(64px, 9999px, 22px, 0);
+    }
+
+    30% {
+      clip: rect(44px, 9999px, 56px, 0);
+    }
+
+    35% {
+      clip: rect(14px, 9999px, 92px, 0);
+    }
+
+    40% {
+      clip: rect(64px, 9999px, 12px, 0);
+    }
+
+    45% {
+      clip: rect(14px, 9999px, 92px, 0);
+    }
+
+    50% {
+      clip: rect(44px, 9999px, 56px, 0);
+    }
+
+    55% {
+      clip: rect(1px, 9999px, 12px, 0);
+    }
+
+    60% {
+      clip: rect(64px, 9999px, 22px, 0);
+    }
+
+    65% {
+      clip: rect(44px, 9999px, 56px, 0);
+    }
+
+    70% {
+      clip: rect(14px, 9999px, 92px, 0);
+    }
+
+    75% {
+      clip: rect(64px, 9999px, 12px, 0);
+    }
+
+    80% {
+      clip: rect(1px, 9999px, 12px, 0);
+    }
+
+    85% {
+      clip: rect(44px, 9999px, 56px, 0);
+    }
+
+    90% {
+      clip: rect(14px, 9999px, 92px, 0);
+    }
+
+    95% {
+      clip: rect(64px, 9999px, 12px, 0);
+    }
+
+    100% {
+      clip: rect(44px, 9999px, 56px, 0);
+    }
+  }
+
+  @keyframes glitch-anim-2 {
+    0% {
+      clip: rect(64px, 9999px, 12px, 0);
+    }
+
+    5% {
+      clip: rect(14px, 9999px, 92px, 0);
+    }
+
+    10% {
+      clip: rect(44px, 9999px, 56px, 0);
+    }
+
+    15% {
+      clip: rect(1px, 9999px, 12px, 0);
+    }
+
+    20% {
+      clip: rect(64px, 9999px, 22px, 0);
+    }
+
+    25% {
+      clip: rect(44px, 9999px, 56px, 0);
+    }
+
+    30% {
+      clip: rect(14px, 9999px, 92px, 0);
+    }
+
+    35% {
+      clip: rect(64px, 9999px, 12px, 0);
+    }
+
+    40% {
+      clip: rect(1px, 9999px, 12px, 0);
+    }
+
+    45% {
+      clip: rect(44px, 9999px, 56px, 0);
+    }
+
+    50% {
+      clip: rect(14px, 9999px, 92px, 0);
+    }
+
+    55% {
+      clip: rect(64px, 9999px, 22px, 0);
+    }
+
+    60% {
+      clip: rect(1px, 9999px, 12px, 0);
+    }
+
+    65% {
+      clip: rect(44px, 9999px, 56px, 0);
+    }
+
+    70% {
+      clip: rect(64px, 9999px, 12px, 0);
+    }
+
+    75% {
+      clip: rect(14px, 9999px, 92px, 0);
+    }
+
+    80% {
+      clip: rect(1px, 9999px, 12px, 0);
+    }
+
+    85% {
+      clip: rect(44px, 9999px, 56px, 0);
+    }
+
+    90% {
+      clip: rect(64px, 9999px, 22px, 0);
+    }
+
+    95% {
+      clip: rect(14px, 9999px, 92px, 0);
+    }
+
+    100% {
+      clip: rect(1px, 9999px, 12px, 0);
+    }
   }
 }
