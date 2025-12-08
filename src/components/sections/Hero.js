@@ -1,16 +1,31 @@
 "use client";
 import { motion } from "framer-motion";
 import { cvData } from "@/data/cv";
+import StarfieldBackground from "@/components/background/StarfieldBackground";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(45deg,transparent_48%,rgba(204,255,0,0.1)_50%,transparent_52%)] bg-[length:20px_20px]" />
+        <StarfieldBackground />
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-zen-neon/20 rounded-full blur-[100px]" />
         <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-zen-blue/20 rounded-full blur-[100px]" />
       </div>
+
+      {/* Hero Car Image */}
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="absolute right-0 bottom-0 z-[5] pointer-events-none"
+      >
+        <img
+          src="images/carbG.png"
+          alt="Hero Car"
+          className="w-[600px] md:w-[800px] lg:w-[1000px] opacity-100"
+        />
+      </motion.div>
 
       <div className="zen-container relative z-10 w-full">
         <div className="flex flex-col items-start max-w-4xl">
