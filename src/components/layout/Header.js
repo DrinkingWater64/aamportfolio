@@ -87,14 +87,6 @@ export default function Header() {
               </li>
               <li>
                 <a
-                  href="#hobbies"
-                  className="px-3 py-1.5 rounded-lg transition-all duration-300 hover:bg-black hover:text-[#ccff00] hover:shadow-[0_0_10px_rgba(204,255,0,0.3)]"
-                >
-                  Hobbies
-                </a>
-              </li>
-              <li>
-                <a
                   href="#contact"
                   className="px-3 py-1.5 rounded-lg transition-all duration-300 hover:bg-black hover:text-[#ccff00] hover:shadow-[0_0_10px_rgba(204,255,0,0.3)]"
                 >
