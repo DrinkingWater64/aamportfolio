@@ -6,8 +6,8 @@ export const cvData = {
         phone: "+8801713713405",
         email: "aamuti64@gmail.com",
         links: {
-            linkedin: "https://linkedin.com/in/abdullah-al-muti", // Assuming URL based on name, can be updated
-            github: "https://github.com/aamuti64" // Assuming based on email/context or placeholder
+            linkedin: "https://www.linkedin.com/in/abdullah-al-muti-26104b1b9/",
+            github: "https://github.com/DrinkingWater64"
         }
     },
     experience: [
@@ -19,6 +19,7 @@ export const cvData = {
             projects: [
                 {
                     name: "SpendPlan",
+                    url: "https://www.spendplan.com/",
                     details: [
                         "Engineered a custom type-safe RedisJSON query engine by translating LINQ expressions to JSONPath at runtime.",
                         "Improved query response time by introducing caching in the query custom engine.",
@@ -28,6 +29,7 @@ export const cvData = {
                 },
                 {
                     name: "Flat Suite",
+                    url: "https://flatsuite.com/",
                     details: [
                         "Architected and implemented core backend features (C# .NET 8, PostgreSQL, Redis).",
                         "Built pluggable AWS S3/local media storage using Factory pattern and reusable rate-limited SMS OTP service.",

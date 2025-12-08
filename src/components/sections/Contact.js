@@ -52,7 +52,7 @@ export default function Contact() {
               <div className="space-y-4 font-mono">
                 <div className="flex items-center text-white">
                   <span className="text-zen-neon mr-4">EMAIL ::</span>
-                  <a href={`mailto:${cvData.personalInfo.email}`} className="hover:text-zen-neon transition-colors">
+                  <a target="_blank" href={`mailto:${cvData.personalInfo.email}`} className="hover:text-zen-neon transition-colors">
                     {cvData.personalInfo.email}
                   </a>
                 </div>
@@ -67,10 +67,10 @@ export default function Contact() {
               </div>
 
               <div className="mt-8 flex gap-4">
-                <a href={cvData.personalInfo.links.linkedin} target="_blank" className="zen-btn text-sm py-2 px-6">
+                <a target="_blank" href={cvData.personalInfo.links.linkedin} className="zen-btn text-sm py-2 px-6">
                   LinkedIn
                 </a>
-                <a href={cvData.personalInfo.links.github} target="_blank" className="px-6 py-2 border border-white text-white font-bold uppercase hover:bg-white hover:text-black transition-all">
+                <a target="_blank" href={cvData.personalInfo.links.github} className="px-6 py-2 border border-white text-white font-bold uppercase hover:bg-white hover:text-black transition-all">
                   GitHub
                 </a>
               </div>
@@ -129,7 +129,7 @@ export default function Contact() {
                   type="submit"
                   className="w-full bg-zen-neon text-zen-black font-bold uppercase py-4 hover:bg-white transition-colors tracking-widest"
                 >
-                  Send Signal
+                  Send Galactic Mail
                 </button>
               </form>
 

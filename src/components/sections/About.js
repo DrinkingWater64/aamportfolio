@@ -140,7 +140,20 @@ export default function About() {
                   <ul className="space-y-2">
                     {exp.projects.map((project, pIndex) => (
                       <li key={pIndex} className="bg-zen-black/50 p-4 rounded border-l-2 border-zen-blue">
-                        <h5 className="font-bold text-white text-sm mb-1">{project.name}</h5>
+                        <h5 className="font-bold text-white text-sm mb-1">
+                          {project.url ? (
+                            <a
+                              href={project.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="hover:text-zen-neon transition-colors duration-200 underline decoration-zen-blue hover:decoration-zen-neon"
+                            >
+                              {project.name}
+                            </a>
+                          ) : (
+                            project.name
+                          )}
+                        </h5>
                         <ul className="list-disc list-inside text-sm text-gray-400 space-y-1">
                           {project.details.slice(0, 2).map((detail, dIndex) => (
                             <li key={dIndex}>{detail}</li>
