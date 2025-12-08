@@ -21,7 +21,7 @@ export default function Hero() {
         className="absolute right-0 bottom-0 z-[5] pointer-events-none"
       >
         <img
-          src="images/carbG.png"
+          src="images/carBgNeonOutline.png"
           alt="Hero Car"
           className="w-[600px] md:w-[800px] lg:w-[1000px] opacity-100"
         />

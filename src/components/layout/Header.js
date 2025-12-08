@@ -18,7 +18,7 @@ export default function Header() {
 
   return (
     <motion.header
-      className="fixed w-full bg-white text-black py-2 px-4 z-50"
+      className="fixed w-full bg-neutral-200/50 backdrop-blur-2xl text-black py-2 px-4 z-50"
       animate={{ top: isPastHero ? 0 : 24 }} // 24px (top-6) to 0px
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
     >
