@@ -1,13 +1,67 @@
 "use client";
 import { motion } from "framer-motion";
 import { cvData } from "@/data/cv";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useGLTF, OrbitControls } from "@react-three/drei";
+import { Suspense, useRef, useEffect } from "react";
+import * as THREE from "three";
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
+
+function AstronautModel() {
+  const groupRef = useRef();
+  const { scene: astroScene } = useGLTF("/astro.glb");
+  const { scene: astroWireScene } = useGLTF("/astro_wire.glb");
+
+  // Clone scenes to avoid modifying the cached versions
+  const astro = astroScene.clone();
+  const astroWire = astroWireScene.clone();
+
+  useEffect(() => {
+    // Apply transparent neon orange material to astro
+    astro.traverse((child) => {
+      if (child.isMesh) {
+        child.material = new THREE.MeshStandardMaterial({
+          color: 0xff6361, // Neon orange
+          transparent: true,
+          opacity: 0.9,
+          emissive: 0xff6b35,
+          emissiveIntensity: 0.5,
+        });
+      }
+    });
+
+    // Apply neon blue wireframe material to astro_wire
+    astroWire.traverse((child) => {
+      if (child.isMesh) {
+        child.material = new THREE.MeshBasicMaterial({
+          color: 0x7aec00, // Neon blue
+          wireframe: true,
+        });
+      }
+    });
+  }, [astro, astroWire]);
+
+  // Rotation animation
+  useFrame((state, delta) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y += delta * 0.5;
+    }
+  });
+
+  return (
+    <group ref={groupRef} scale={2} position={[0, -5, 0]}>
+      <primitive object={astro} />
+      <primitive object={astroWire} />
+    </group>
+  );
+}
 
 export default function About() {
   return (
     <section className="py-20 bg-zen-black relative overflow-hidden">
       <div className="zen-container">
         <div className="flex flex-col md:flex-row gap-12">
-          {/* Left Column: Header & Stats */}
+          {/* Left Column: Header & 3D Model */}
           <div className="w-full md:w-1/3 space-y-8">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -23,36 +77,35 @@ export default function About() {
               </p>
             </motion.div>
 
-            <div className="bg-zen-dark border border-zen-gray p-6 rounded-lg">
-              <h3 className="text-zen-neon font-bold uppercase mb-4 tracking-wider">Stats</h3>
-              <div className="space-y-4">
-                <div>
-                  <div className="flex justify-between text-sm text-gray-400 mb-1">
-                    <span>Backend</span>
-                    <span>95%</span>
-                  </div>
-                  <div className="h-2 bg-zen-gray rounded-full overflow-hidden">
-                    <div className="h-full bg-zen-neon w-[95%]" />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between text-sm text-gray-400 mb-1">
-                    <span>Frontend</span>
-                    <span>80%</span>
-                  </div>
-                  <div className="h-2 bg-zen-gray rounded-full overflow-hidden">
-                    <div className="h-full bg-zen-blue w-[80%]" />
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between text-sm text-gray-400 mb-1">
-                    <span>DevOps</span>
-                    <span>70%</span>
-                  </div>
-                  <div className="h-2 bg-zen-gray rounded-full overflow-hidden">
-                    <div className="h-full bg-zen-orange w-[70%]" />
-                  </div>
-                </div>
+            <div className="bg-transparent border border-zen-gray p-6 rounded-lg h-[400px]">
+              <div className="w-full h-[calc(100%-2rem)]">
+                <Canvas
+                  camera={{ position: [0, 0, 8], fov: 50 }}
+                  gl={{ alpha: true }}
+                  style={{ background: 'transparent' }}
+                >
+                  <Suspense fallback={null}>
+                    <ambientLight intensity={0.5} />
+                    <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
+                    <pointLight position={[-10, -10, -10]} intensity={0.5} />
+                    <AstronautModel />
+                    <OrbitControls
+                      enableZoom={false}
+                      autoRotate
+                      autoRotateSpeed={2}
+                      minPolarAngle={Math.PI / 3}
+                      maxPolarAngle={Math.PI / 1.5}
+                    />
+                    <EffectComposer>
+                      <Bloom
+                        intensity={1.5}
+                        luminanceThreshold={0}
+                        luminanceSmoothing={0.9}
+                        radius={0.5}
+                      />
+                    </EffectComposer>
+                  </Suspense>
+                </Canvas>
               </div>
             </div>
           </div>
