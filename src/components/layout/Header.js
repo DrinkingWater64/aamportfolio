@@ -56,7 +56,7 @@ export default function Header() {
               <li>
                 <a
                   href="#home"
-                  className="px-3 py-1.5 rounded-lg transition-all duration-300 hover:bg-black hover:text-[#ccff00] hover:shadow-[0_0_10px_rgba(204,255,0,0.3)]"
+                  className="px-3 py-1.5 transition-all duration-300 hover:bg-black hover:text-[#ccff00] hover:shadow-[0_0_10px_rgba(204,255,0,0.3)]"
                 >
                   Home
                 </a>
@@ -64,7 +64,7 @@ export default function Header() {
               <li>
                 <a
                   href="#about"
-                  className="px-3 py-1.5 rounded-lg transition-all duration-300 hover:bg-black hover:text-[#ccff00] hover:shadow-[0_0_10px_rgba(204,255,0,0.3)]"
+                  className="px-3 py-1.5 transition-all duration-300 hover:bg-black hover:text-[#ccff00] hover:shadow-[0_0_10px_rgba(204,255,0,0.3)]"
                 >
                   About
                 </a>
@@ -72,7 +72,7 @@ export default function Header() {
               <li>
                 <a
                   href="#skills"
-                  className="px-3 py-1.5 rounded-lg transition-all duration-300 hover:bg-black hover:text-[#ccff00] hover:shadow-[0_0_10px_rgba(204,255,0,0.3)]"
+                  className="px-3 py-1.5 transition-all duration-300 hover:bg-black hover:text-[#ccff00] hover:shadow-[0_0_10px_rgba(204,255,0,0.3)]"
                 >
                   Skills
                 </a>
@@ -80,7 +80,7 @@ export default function Header() {
               <li>
                 <a
                   href="#projects"
-                  className="px-3 py-1.5 rounded-lg transition-all duration-300 hover:bg-black hover:text-[#ccff00] hover:shadow-[0_0_10px_rgba(204,255,0,0.3)]"
+                  className="px-3 py-1.5 transition-all duration-300 hover:bg-black hover:text-[#ccff00] hover:shadow-[0_0_10px_rgba(204,255,0,0.3)]"
                 >
                   Projects
                 </a>
@@ -88,7 +88,7 @@ export default function Header() {
               <li>
                 <a
                   href="#contact"
-                  className="px-3 py-1.5 rounded-lg transition-all duration-300 hover:bg-black hover:text-[#ccff00] hover:shadow-[0_0_10px_rgba(204,255,0,0.3)]"
+                  className="px-3 py-1.5 transition-all duration-300 hover:bg-black hover:text-[#ccff00] hover:shadow-[0_0_10px_rgba(204,255,0,0.3)]"
                 >
                   Contact
                 </a>
@@ -97,12 +97,19 @@ export default function Header() {
           </nav>
         </div>
         <div className="flex ml-auto space-x-4">
-          <button className="px-4 py-2 bg-black text-[#ccff00] text-sm font-semibold rounded-lg transition-all duration-300 hover:shadow-[0_0_15px_rgba(204,255,0,0.5)] hover:scale-105 whitespace-nowrap border border-[#ccff00]/30">
+          <a
+            href="/Abdullah Al Muti 2025.pdf"
+            download="Abdullah_Al_Muti_Resume_2025.pdf"
+            className="px-4 py-2 bg-black text-[#ccff00] text-sm font-semibold transition-all duration-300 hover:shadow-[0_0_15px_rgba(204,255,0,0.5)] hover:scale-105 whitespace-nowrap border border-[#ccff00]/30 inline-block text-center"
+          >
             Download Resume
-          </button>
-          <button className="px-4 py-2 bg-black text-[#ccff00] text-sm font-semibold rounded-lg transition-all duration-300 hover:shadow-[0_0_15px_rgba(204,255,0,0.5)] hover:scale-105 whitespace-nowrap border border-[#ccff00]/30">
+          </a>
+          <a
+            href="#contact"
+            className="px-4 py-2 bg-black text-[#ccff00] text-sm font-semibold transition-all duration-300 hover:shadow-[0_0_15px_rgba(204,255,0,0.5)] hover:scale-105 whitespace-nowrap border border-[#ccff00]/30 inline-block text-center"
+          >
             Connect
-          </button>
+          </a>
         </div>
       </div>
     </motion.header>
