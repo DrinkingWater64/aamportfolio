@@ -34,7 +34,7 @@ function AstronautModel() {
     astroWire.traverse((child) => {
       if (child.isMesh) {
         child.material = new THREE.MeshBasicMaterial({
-          color: 0x7aec00, // Neon blue
+          color: 0x2334d3, // Neon blue
           wireframe: true,
         });
       }

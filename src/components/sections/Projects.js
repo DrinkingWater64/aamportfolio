@@ -33,7 +33,7 @@ export default function Projects() {
                   <h3 className="text-2xl font-bold text-white group-hover:text-zen-neon transition-colors">
                     {project.name}
                   </h3>
-                  <span className="text-xs font-mono text-zen-gray border border-zen-gray px-2 py-1 rounded">
+                  <span className="text-xs font-mono text-zen-light-gray border border-zen-gray px-2 py-1 rounded">
                     {project.type}
                   </span>
                 </div>
@@ -52,12 +52,6 @@ export default function Projects() {
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-zen-gray/30 flex justify-end">
-                  <button className="text-sm font-bold text-zen-neon uppercase tracking-wider hover:text-white transition-colors">
-                    View Details &rarr;
-                  </button>
                 </div>
               </div>
             </motion.div>
