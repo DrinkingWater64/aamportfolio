@@ -96,8 +96,8 @@ export default function Header() {
         {/* Desktop Buttons */}
         <div className="hidden md:flex ml-auto space-x-4">
           <a
-            href="/Abdullah Al Muti 2025.pdf"
-            download="Abdullah_Al_Muti_Resume_2025.pdf"
+            href="/AbdullahAlMuti.pdf"
+            download="AbdullahAlMuti.pdf"
             className="px-4 py-2 bg-black text-[#ccff00] text-sm font-semibold transition-all duration-300 hover:shadow-[0_0_15px_rgba(204,255,0,0.5)] hover:scale-105 whitespace-nowrap border border-[#ccff00]/30 inline-flex items-center gap-2 text-center"
           >
             Resume
@@ -200,8 +200,8 @@ export default function Header() {
               <hr className="border-gray-300" />
               <div className="flex flex-col space-y-3">
                 <a
-                  href="/Abdullah Al Muti 2025.pdf"
-                  download="Abdullah_Al_Muti_Resume_2025.pdf"
+                  href="/AbdullahAlMuti.pdf"
+                  download="AbdullahAlMuti.pdf"
                   onClick={() => setIsMenuOpen(false)}
                   className="px-4 py-2 bg-black text-[#ccff00] text-sm font-semibold transition-all duration-300 whitespace-nowrap border border-[#ccff00]/30 flex items-center justify-center gap-2 rounded text-center"
                 >
