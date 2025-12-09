@@ -32,11 +32,11 @@ export default function Skills() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="bg-zen-dark border border-zen-gray p-6 rounded-xl relative overflow-hidden group"
+              className="bg-zen-dark border border-zen-gray p-6 relative overflow-hidden group"
             >
               <div className={`absolute top-0 left-0 w-1 h-full bg-${category.color}`} />
               <h3 className="text-2xl font-bold text-white mb-6 uppercase tracking-wider flex items-center">
-                <span className={`w-3 h-3 rounded-full bg-${category.color} mr-3`} />
+                <span className={`w-3 h-3 bg-${category.color} mr-3`} />
                 {category.name}
               </h3>
 
@@ -44,7 +44,7 @@ export default function Skills() {
                 {category.skills.map((skill, sIndex) => (
                   <span
                     key={sIndex}
-                    className="px-3 py-1 bg-zen-gray/50 text-gray-300 text-sm font-mono rounded border border-transparent hover:border-white hover:text-white transition-all cursor-default"
+                    className="px-3 py-1 bg-zen-gray/50 text-gray-300 text-sm font-mono border border-transparent hover:border-white hover:text-white transition-all cursor-default"
                   >
                     {skill}
                   </span>

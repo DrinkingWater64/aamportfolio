@@ -166,7 +166,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-neutral-100/95 backdrop-blur-xl overflow-hidden shadow-lg mt-2 rounded-lg"
+            className="absolute top-full left-4 right-4 md:hidden bg-neutral-100/95 backdrop-blur-xl overflow-hidden shadow-lg mt-2 rounded-lg"
           >
             <nav className="flex flex-col p-4 space-y-4">
               <a
